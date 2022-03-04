@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">EjemploListviewViernes</string>
+    <string name="cadena">Uso de Listview</string>
 </resources>
