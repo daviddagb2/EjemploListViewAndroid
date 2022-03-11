@@ -5,7 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -13,9 +16,9 @@ public class MyAdapter extends BaseAdapter {
 
     private Context context;
     private int layout;
-    private ArrayList<String> nombres;
+    private ArrayList<Personaje> nombres;
 
-    public  MyAdapter(Context context, int layout, ArrayList<String> nombres){
+    public  MyAdapter(Context context, int layout, ArrayList<Personaje> nombres){
         this.context = context;
         this.layout = layout;
         this.nombres = nombres;
@@ -45,7 +48,18 @@ public class MyAdapter extends BaseAdapter {
         vista = layoutInflater.inflate(R.layout.list_item, null);
 
         TextView textoelemento = vista.findViewById(R.id.texto_elemento);
-        textoelemento.setText(nombres.get(i));
+        textoelemento.setText(nombres.get(i).getNombre());
+
+        ImageView imagenPersonaje = vista.findViewById(R.id.imagenelemento);
+
+        Picasso.get()
+                .load(nombres.get(i).getFoto() )
+                .error(R.drawable.ic_launcher_background)
+                .fit()
+                .centerInside()
+                .into(imagenPersonaje);
+
+
         return vista;
 
     }
