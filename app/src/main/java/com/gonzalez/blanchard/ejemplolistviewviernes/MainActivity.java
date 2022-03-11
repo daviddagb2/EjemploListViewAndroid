@@ -52,11 +52,11 @@ public class MainActivity extends AppCompatActivity {
         names.add("Soy inevitable");
         names.add("Pantera negra");
 
-        ArrayAdapter<String> adapter;
-        adapter = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1, names);
+        //ArrayAdapter<String> adapter;
+        //adapter = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1, names);
+        MyAdapter adapter = new MyAdapter(MainActivity.this, R.layout.list_item, names);
 
         listview.setAdapter(adapter);
-
 
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
