@@ -64,6 +64,11 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Has seleccionado" + names.get(i), Toast.LENGTH_SHORT).show();
 
                 Intent pantalla2 = new Intent(MainActivity.this, DetallePersonaje.class);
+
+                Bundle bundle = new Bundle();
+                bundle.putString("nombre", names.get(i));
+                pantalla2.putExtras(bundle);
+
                 startActivity(pantalla2);
 
             }
